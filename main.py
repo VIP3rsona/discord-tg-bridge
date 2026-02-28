@@ -14,6 +14,8 @@ client = discord.Client(intents=intents)
 async def on_message(message):
     if message.author.bot:
         return
+if str(message.channel.id) != os.environ["DISCORD_CHANNEL_ID"]:
+    return
 
     attachments = message.attachments
     text = message.content
